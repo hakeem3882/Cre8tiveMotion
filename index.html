@@ -27,8 +27,8 @@
              Recommended: 480 x 120 px (4:1), transparent PNG or SVG. It displays at ~44px tall, so wide logos stay sharp.
              The same logo is used in the footer. -->
         <div class="navbar__inner container">
-            <a href="#home" class="logo" aria-label="Videos2Grow - home"><img src="images/logo.svg" alt="Videos2Grow" width="480" height="120"></a>
-            <nav>
+            <a href="#home" class="logo" aria-label="Videos2Grow - home"><img src="Videos2Grow_logo_new.png" alt="Videos2Grow" width="480" height="120"></a>
+            <nav id="mainNav" class="main-nav">
                 <ul class="nav-list">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
@@ -41,6 +41,9 @@
             <div class="navbar__action">
                 <a href="#contact" class="btn primary btn-sm">Let's Talk</a>
             </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
@@ -300,10 +303,6 @@
                         <p>Short description of this video goes here.</p>
                     </div>
                 </div>
-                <div class="channel-link-box">
-                    <p>Want to see more? Check out our full channel:</p>
-                    <a href="https://www.youtube.com/@Videos2Grow" target="_blank" rel="noopener noreferrer" class="btn primary btn-sm">Visit YouTube Channel</a>
-                </div>
             </div>
 
             <!-- Tab 2: Social Media Posts (opens in lightbox). Thumbnails: 1350 x 1080 px -->
@@ -480,7 +479,7 @@
         <button class="lightbox-nav lightbox-nav--next" id="lbNext" aria-label="Next">&#8250;</button>
         <div class="lightbox-stage">
             <div class="lightbox-video-container" id="lbVideo">
-                <iframe id="lightboxIframe" src="about:blank" title="Video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe id="lightboxIframe" src="about:blank" title="Video player" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="lightbox-notice" id="lbNotice">
                     <strong>Video placeholder</strong>
                     <span>Add your YouTube or Vimeo link in this item's <code>data-video</code> attribute.</span>
@@ -540,7 +539,7 @@
             <div class="team-grid">
                 <div class="team-card">
                     <!-- Team photo: replace images/team-01.svg with your photo. Recommended 800 x 1000 px (4:5 portrait), JPG/PNG/WebP -->
-                    <div class="team-photo"><img src="images/team-01.svg" alt="Muhammad Hakeem" loading="lazy"></div>
+                    <div class="team-photo"><img src="m_hakeem.jpg" alt="Muhammad Hakeem" loading="lazy"></div>
                     <h3>Muhammad Hakeem</h3>
                     <p class="role">Founder | Video Editor & Motion Designer</p>
                     <p>Leads creative direction, motion design, video production, and marketing strategy since 2016.</p>
@@ -549,7 +548,7 @@
                     <!-- Team photo: replace images/team-02.svg with your photo. Recommended 800 x 1000 px (4:5 portrait), JPG/PNG/WebP -->
                     <div class="team-photo"><img src="images/team-02.svg" alt="Ghulam Rasool" loading="lazy"></div>
                     <h3>Ghulam Rasool</h3>
-                    <p class="role">Graphic Designer & Video Editor</p>
+                    <p class="role">Co-Founder | Graphic Designer & Video Editor</p>
                     <p>Creates eye-catching custom designs combining traditional skills with AI-powered creativity.</p>
                 </div>
                 <div class="team-card">
@@ -579,7 +578,7 @@
                 <p class="section-desc">Tell us about your project and we’ll get back to you shortly.</p>
             </div>
             
-            <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="contact-form" onsubmit="handleContactSubmit(event)">
+            <form id="contactForm" action="https://formspree.io/f/xgakaewl" method="POST" class="contact-form" onsubmit="handleContactSubmit(event)">
                 <div class="form-group">
                     <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" required placeholder="John Doe">
@@ -601,7 +600,7 @@
     <!-- Footer -->
     <footer>
         <div class="container footer__inner">
-            <a href="#home" class="logo" aria-label="Videos2Grow - home"><img src="images/logo.svg" alt="Videos2Grow" width="480" height="120"></a>
+            <a href="#home" class="logo" aria-label="Videos2Grow - home"><img src="Videos2Grow_logo_new.png" alt="Videos2Grow" width="480" height="120"></a>
             <p>&copy; 2026 Videos2Grow. All rights reserved. Creative Ideas. Powerful Visuals. Meaningful Growth.</p>
         </div>
     </footer>
@@ -621,6 +620,22 @@
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
+
+        // ---------- Mobile menu ----------
+        (function () {
+            const btn = document.getElementById('navToggle');
+            const nav = document.getElementById('mainNav');
+            const bar = document.querySelector('.navbar');
+            function setOpen(o) {
+                bar.classList.toggle('menu-open', o);
+                btn.setAttribute('aria-expanded', o);
+                btn.setAttribute('aria-label', o ? 'Close menu' : 'Open menu');
+            }
+            btn.addEventListener('click', function () { setOpen(!bar.classList.contains('menu-open')); });
+            nav.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+            window.addEventListener('resize', function () { if (innerWidth > 900) setOpen(false); });
+        })();
 
         // ---------- Lightbox (videos + social posts) ----------
         (function () {
