@@ -1,0 +1,8 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000' width='1600' height='1000'>
+<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#fee2e2'/><stop offset='1' stop-color='#e0f2fe'/></linearGradient>
+<pattern id='p' width='28' height='28' patternUnits='userSpaceOnUse'><circle cx='2' cy='2' r='1.4' fill='#0284c7' opacity='.14'/></pattern></defs>
+<rect width='1600' height='1000' fill='url(#g)'/><rect width='1600' height='1000' fill='url(#p)'/>
+<rect x='80' y='70' width='1440' height='860' rx='22' fill='#fff' opacity='.75' stroke='#0d0d0d' stroke-opacity='.12' stroke-width='3'/><path d='M80 92a22 22 0 0 1 22-22h1396a22 22 0 0 1 22 22v70H80z' fill='#0d0d0d' opacity='.07'/><circle cx='132' cy='116' r='11' fill='#f97316'/><circle cx='170' cy='116' r='11' fill='#fbbf24'/><circle cx='208' cy='116' r='11' fill='#0284c7'/><rect x='260' y='100' width='1080' height='32' rx='16' fill='#0d0d0d' opacity='.07'/>
+<text x='800.0' y='530.0' text-anchor='middle' font-family='Plus Jakarta Sans, Arial, sans-serif' font-weight='800' font-size='51' fill='#0d0d0d' opacity='.78'>WEBSITE SCREENSHOT 03</text>
+<text x='800.0' y='610' text-anchor='middle' font-family='Plus Jakarta Sans, Arial, sans-serif' font-weight='700' font-size='38' fill='#f97316'>1600 x 1000 px (16:10)</text>
+</svg>

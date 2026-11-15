@@ -1,0 +1,8 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 1000' width='800' height='1000'>
+<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#fef3c7'/><stop offset='1' stop-color='#e0e7ff'/></linearGradient>
+<pattern id='p' width='28' height='28' patternUnits='userSpaceOnUse'><circle cx='2' cy='2' r='1.4' fill='#0284c7' opacity='.14'/></pattern></defs>
+<rect width='800' height='1000' fill='url(#g)'/><rect width='800' height='1000' fill='url(#p)'/>
+<circle cx='400' cy='330' r='120' fill='#0d0d0d' opacity='.10'/><path d='M150 760a250 250 0 0 1 500 0v240H150z' fill='#0d0d0d' opacity='.10'/>
+<text x='400.0' y='860' text-anchor='middle' font-family='Plus Jakarta Sans, Arial, sans-serif' font-weight='800' font-size='26' fill='#0d0d0d' opacity='.78'>TEAM PHOTO</text>
+<text x='400.0' y='915' text-anchor='middle' font-family='Plus Jakarta Sans, Arial, sans-serif' font-weight='700' font-size='19' fill='#f97316'>800 x 1000 px (4:5)</text>
+</svg>
