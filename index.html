@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cre8tive Motion | Creative Production & Digital Marketing</title>
+    <title>Videos2Grow | Creative Production & Digital Marketing</title>
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,14 +17,17 @@
     <!-- ========================================== -->
     <script>
         const SITE_CONFIG = {
-            businessEmail: "mailingtohakeem@gmail.com" // Replace with your domain email later (e.g., info@cre8tivemotion.com)
+            businessEmail: "mailingtohakeem@gmail.com" // Replace with your domain email later (e.g., info@videos2grow.com)
         };
     </script>
 
     <!-- Header / Navbar -->
     <header class="navbar">
+        <!-- LOGO: replace images/logo.svg with your logo (same file name) or change the src below.
+             Recommended: 480 x 120 px (4:1), transparent PNG or SVG. It displays at ~44px tall, so wide logos stay sharp.
+             The same logo is used in the footer. -->
         <div class="navbar__inner container">
-            <div class="logo">Cre8tive <span>Motion</span></div>
+            <a href="#home" class="logo" aria-label="Videos2Grow - home"><img src="images/logo.svg" alt="Videos2Grow" width="480" height="120"></a>
             <nav>
                 <ul class="nav-list">
                     <li><a href="#home">Home</a></li>
@@ -43,6 +46,20 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Animated background: reacts to cursor movement and scrolling (see script at the bottom) -->
+        <div class="hero__bg" aria-hidden="true">
+            <div class="hero__grid" data-depth="8" data-speed="0.04"></div>
+            <div class="fx" data-depth="38" data-speed="0.10" style="top:-12%;left:-8%"><span class="orb orb--orange"></span></div>
+            <div class="fx" data-depth="-30" data-speed="0.16" style="top:6%;right:-10%"><span class="orb orb--blue"></span></div>
+            <div class="fx" data-depth="22" data-speed="0.06" style="bottom:2%;left:30%"><span class="orb orb--soft"></span></div>
+            <div class="fx" data-depth="-55" data-speed="0.22" style="top:22%;left:9%"><span class="shape shape--ring"></span></div>
+            <div class="fx" data-depth="48" data-speed="0.30" style="top:16%;right:13%"><span class="shape shape--square"></span></div>
+            <div class="fx" data-depth="-42" data-speed="0.26" style="top:58%;right:8%"><span class="shape shape--ring shape--blue"></span></div>
+            <div class="fx" data-depth="60" data-speed="0.34" style="top:64%;left:7%"><span class="shape shape--plus"></span></div>
+            <div class="fx" data-depth="-65" data-speed="0.20" style="top:40%;left:20%"><span class="shape shape--dot"></span></div>
+            <div class="fx" data-depth="52" data-speed="0.28" style="top:36%;right:22%"><span class="shape shape--dot shape--blue"></span></div>
+            <div class="fx" data-depth="-36" data-speed="0.32" style="top:8%;left:38%"><span class="shape shape--triangle"></span></div>
+        </div>
         <div class="container hero__inner">
             <div class="hero__copy">
                 <p class="hero__eyebrow">
@@ -85,6 +102,7 @@
                 <span>Lottie Animations</span> &bull;
                 <span>Graphic Design</span> &bull;
                 <span>Social Media Management</span> &bull;
+                <span>Website Development</span> &bull;
                 <span>Digital Marketing</span> &bull;
                 <span>Explainer Videos</span> &bull;
                 <span>Promotional Ads</span> &bull;
@@ -96,6 +114,7 @@
                 <span>Lottie Animations</span> &bull;
                 <span>Graphic Design</span> &bull;
                 <span>Social Media Management</span> &bull;
+                <span>Website Development</span> &bull;
                 <span>Digital Marketing</span> &bull;
                 <span>Explainer Videos</span> &bull;
                 <span>Promotional Ads</span> &bull;
@@ -166,13 +185,14 @@
                     </ul>
                 </div>
                 <div class="service-card">
-                    <h3>Complete Digital Marketing</h3>
-                    <p>A complete creative and marketing solution for businesses that want to grow without coordinating multiple freelancers.</p>
+                    <h3>Website Development & Integration</h3>
+                    <p>Fast, responsive websites built to turn visitors into customers, connected to the tools and platforms your business already uses.</p>
                     <ul class="service-tags">
-                        <li>Marketing Strategy</li>
-                        <li>Brand Communication</li>
-                        <li>Campaign Planning</li>
-                        <li>Creative Optimization</li>
+                        <li>Custom Website Design</li>
+                        <li>WordPress & Shopify</li>
+                        <li>Landing Pages</li>
+                        <li>Third-party & API Integration</li>
+                        <li>Speed & SEO Optimization</li>
                     </ul>
                 </div>
             </div>
@@ -185,102 +205,289 @@
             <div class="section-header">
                 <p class="eyebrow">Our Work</p>
                 <h2>Ideas Brought to Life.</h2>
-                <p class="section-desc">Explore our separate video portfolio items, social media creatives, and web animations.</p>
+                <p class="section-desc">Explore our video productions, social media creatives, and website portfolio.</p>
             </div>
 
             <!-- Tab Buttons -->
-            <div class="work-tabs">
-                <button class="tab-btn active" onclick="switchTab(event, 'video-tab')">Video Production</button>
-                <button class="tab-btn" onclick="switchTab(event, 'social-tab')">Social Media Posts</button>
-                <button class="tab-btn" onclick="switchTab(event, 'lottie-tab')">Lottie Animations</button>
+            <div class="work-tabs" role="tablist">
+                <button class="tab-btn active" role="tab" onclick="switchTab(event, 'video-tab')">Video Production</button>
+                <button class="tab-btn" role="tab" onclick="switchTab(event, 'social-tab')">Social Media Posts</button>
+                <button class="tab-btn" role="tab" onclick="switchTab(event, 'website-tab')">Website Portfolio</button>
             </div>
 
-            <!-- Tab 1: Video Production (Individual Video Grid with Lightbox) -->
+            <!-- Tab 1: Video Production (opens in lightbox). Thumbnails: 1280 x 720 px -->
             <div id="video-tab" class="tab-content active">
-                <div class="videos-grid">
+                <div class="work-grid">
                     <!-- Video 1 -->
-                    <div class="video-thumb-card" onclick="openLightbox('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                        <div class="thumb-preview">
-                            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Video Thumbnail">
-                            <div class="play-icon">&#9658;</div>
+                    <div class="work-card video-card" role="button" tabindex="0" data-lb-group="video" data-lb-type="video" data-title="2D Explainer Video" data-video="https://www.youtube.com/watch?v=AgjAWjCMUVQ">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/AgjAWjCMUVQ/hqdefault.jpg" alt="2D Explainer Video" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span></div>
                         </div>
-                        <h3>SaaS Explainer Video</h3>
-                        <p>Explaining complex product features through engaging 2D motion graphics.</p>
+                        <h3>2D Explainer Video</h3>
+                        <p>Explaining complex product features through engaging 2D Animation.</p>
                     </div>
                     <!-- Video 2 -->
-                    <div class="video-thumb-card" onclick="openLightbox('https://www.youtube.com/embed/3JZ_D3ELwOQ')">
-                        <div class="thumb-preview">
-                            <img src="https://img.youtube.com/vi/3JZ_D3ELwOQ/hqdefault.jpg" alt="Video Thumbnail">
-                            <div class="play-icon">&#9658;</div>
+                    <div class="work-card video-card" role="button" tabindex="0" data-lb-group="video" data-lb-type="video" data-title="Product Launch Promo" data-video="https://www.youtube.com/watch?v=DZoJt_4je2E">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/DZoJt_4je2E/hqdefault.jpg" alt="Product Launch Promo" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span></div>
                         </div>
                         <h3>Product Launch Promo</h3>
                         <p>High-energy promotional video built to capture attention on social ads.</p>
                     </div>
                     <!-- Video 3 -->
-                    <div class="video-thumb-card" onclick="openLightbox('https://www.youtube.com/embed/9bZkp7q19f0')">
-                        <div class="thumb-preview">
-                            <img src="https://img.youtube.com/vi/9bZkp7q19f0/hqdefault.jpg" alt="Video Thumbnail">
-                            <div class="play-icon">&#9658;</div>
+                    <div class="work-card video-card" role="button" tabindex="0" data-lb-group="video" data-lb-type="video" data-title="SaaS Launch Video" data-video="https://www.youtube.com/watch?v=dB8YkDNl9eo">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/dB8YkDNl9eo/hqdefault.jpg" alt="SaaS Launch Video" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span></div>
                         </div>
-                        <h3>AI-Powered Commercial</h3>
-                        <p>Cutting-edge AI visual storytelling directed and edited by human experts.</p>
+                        <h3>SaaS Launch Video</h3>
+                        <p>Amazing SaaS animation that explains complex functions with clear and engaging motion graphics</p>
+                    </div>
+                    <!-- Video 4 (placeholder): replace the image in "src" and the YouTube/Vimeo link in "data-video" -->
+                    <div class="work-card video-card" role="button" tabindex="0" data-lb-group="video" data-lb-type="video" data-title="Motion Graphics Reel" data-video="https://www.youtube.com/watch?v=YOUR_VIDEO_ID">
+                        <div class="thumb">
+                            <img src="images/video-04.svg" alt="Motion Graphics Reel" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span></div>
+                        </div>
+                        <h3>Motion Graphics Reel</h3>
+                        <p>Short description of this video goes here.</p>
+                    </div>
+                    <!-- Video 5 (placeholder): replace the image in "src" and the YouTube/Vimeo link in "data-video" -->
+                    <div class="work-card video-card" role="button" tabindex="0" data-lb-group="video" data-lb-type="video" data-title="Social Media Reel" data-video="https://www.youtube.com/watch?v=YOUR_VIDEO_ID">
+                        <div class="thumb">
+                            <img src="images/video-05.svg" alt="Social Media Reel" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span></div>
+                        </div>
+                        <h3>Social Media Reel</h3>
+                        <p>Short description of this video goes here.</p>
+                    </div>
+                    <!-- Video 6 (placeholder): replace the image in "src" and the YouTube/Vimeo link in "data-video" -->
+                    <div class="work-card video-card" role="button" tabindex="0" data-lb-group="video" data-lb-type="video" data-title="AI Product Visual" data-video="https://www.youtube.com/watch?v=YOUR_VIDEO_ID">
+                        <div class="thumb">
+                            <img src="images/video-06.svg" alt="AI Product Visual" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span></div>
+                        </div>
+                        <h3>AI Product Visual</h3>
+                        <p>Short description of this video goes here.</p>
+                    </div>
+                    <!-- Video 7 (placeholder): replace the image in "src" and the YouTube/Vimeo link in "data-video" -->
+                    <div class="work-card video-card" role="button" tabindex="0" data-lb-group="video" data-lb-type="video" data-title="Promotional Ad" data-video="https://www.youtube.com/watch?v=YOUR_VIDEO_ID">
+                        <div class="thumb">
+                            <img src="images/video-07.svg" alt="Promotional Ad" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span></div>
+                        </div>
+                        <h3>Promotional Ad</h3>
+                        <p>Short description of this video goes here.</p>
+                    </div>
+                    <!-- Video 8 (placeholder): replace the image in "src" and the YouTube/Vimeo link in "data-video" -->
+                    <div class="work-card video-card" role="button" tabindex="0" data-lb-group="video" data-lb-type="video" data-title="Brand Intro Animation" data-video="https://www.youtube.com/watch?v=YOUR_VIDEO_ID">
+                        <div class="thumb">
+                            <img src="images/video-08.svg" alt="Brand Intro Animation" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span></div>
+                        </div>
+                        <h3>Brand Intro Animation</h3>
+                        <p>Short description of this video goes here.</p>
+                    </div>
+                    <!-- Video 9 (placeholder): replace the image in "src" and the YouTube/Vimeo link in "data-video" -->
+                    <div class="work-card video-card" role="button" tabindex="0" data-lb-group="video" data-lb-type="video" data-title="Corporate Explainer" data-video="https://www.youtube.com/watch?v=YOUR_VIDEO_ID">
+                        <div class="thumb">
+                            <img src="images/video-09.svg" alt="Corporate Explainer" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span></div>
+                        </div>
+                        <h3>Corporate Explainer</h3>
+                        <p>Short description of this video goes here.</p>
                     </div>
                 </div>
                 <div class="channel-link-box">
                     <p>Want to see more? Check out our full channel:</p>
-                    <a href="https://www.youtube.com/@Cre8tiveMotion" target="_blank" class="btn primary btn-sm">Visit YouTube Channel</a>
+                    <a href="https://www.youtube.com/@Videos2Grow" target="_blank" rel="noopener noreferrer" class="btn primary btn-sm">Visit YouTube Channel</a>
                 </div>
             </div>
 
-            <!-- Tab 2: Social Media Posts (3 Placeholders sized 1350x1080) -->
+            <!-- Tab 2: Social Media Posts (opens in lightbox). Thumbnails: 1350 x 1080 px -->
             <div id="social-tab" class="tab-content">
-                <div class="social-grid">
-                    <div class="social-placeholder-card">
-                        <div class="placeholder-box" style="aspect-ratio: 1350/1080;">
-                            <span>1350 x 1080 px</span>
-                            <p>Social Media Post 1 Placeholder</p>
+                <div class="work-grid">
+                    <!-- Social post 1 (placeholder): replace the image "src" (1350 x 1080 px). Optional: add data-full="path/to/larger-image.jpg" for a bigger lightbox version -->
+                    <div class="work-card social-card" role="button" tabindex="0" data-lb-group="social" data-lb-type="image" data-title="Campaign Creative 01">
+                        <div class="thumb thumb--social">
+                            <img src="images/social-01.svg" alt="Campaign Creative 01" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--expand"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="ex ex-tl" d="M9 4H4v5M4 4l6 6"/><path class="ex ex-tr" d="M15 4h5v5M20 4l-6 6"/><path class="ex ex-bl" d="M9 20H4v-5M4 20l6-6"/><path class="ex ex-br" d="M15 20h5v-5M20 20l-6-6"/></svg></span></div>
                         </div>
                         <h3>Campaign Creative 01</h3>
                     </div>
-                    <div class="social-placeholder-card">
-                        <div class="placeholder-box" style="aspect-ratio: 1350/1080;">
-                            <span>1350 x 1080 px</span>
-                            <p>Social Media Post 2 Placeholder</p>
+                    <!-- Social post 2 (placeholder): replace the image "src" (1350 x 1080 px). Optional: add data-full="path/to/larger-image.jpg" for a bigger lightbox version -->
+                    <div class="work-card social-card" role="button" tabindex="0" data-lb-group="social" data-lb-type="image" data-title="Campaign Creative 02">
+                        <div class="thumb thumb--social">
+                            <img src="images/social-02.svg" alt="Campaign Creative 02" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--expand"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="ex ex-tl" d="M9 4H4v5M4 4l6 6"/><path class="ex ex-tr" d="M15 4h5v5M20 4l-6 6"/><path class="ex ex-bl" d="M9 20H4v-5M4 20l6-6"/><path class="ex ex-br" d="M15 20h5v-5M20 20l-6-6"/></svg></span></div>
                         </div>
                         <h3>Campaign Creative 02</h3>
                     </div>
-                    <div class="social-placeholder-card">
-                        <div class="placeholder-box" style="aspect-ratio: 1350/1080;">
-                            <span>1350 x 1080 px</span>
-                            <p>Social Media Post 3 Placeholder</p>
+                    <!-- Social post 3 (placeholder): replace the image "src" (1350 x 1080 px). Optional: add data-full="path/to/larger-image.jpg" for a bigger lightbox version -->
+                    <div class="work-card social-card" role="button" tabindex="0" data-lb-group="social" data-lb-type="image" data-title="Campaign Creative 03">
+                        <div class="thumb thumb--social">
+                            <img src="images/social-03.svg" alt="Campaign Creative 03" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--expand"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="ex ex-tl" d="M9 4H4v5M4 4l6 6"/><path class="ex ex-tr" d="M15 4h5v5M20 4l-6 6"/><path class="ex ex-bl" d="M9 20H4v-5M4 20l6-6"/><path class="ex ex-br" d="M15 20h5v-5M20 20l-6-6"/></svg></span></div>
                         </div>
                         <h3>Campaign Creative 03</h3>
+                    </div>
+                    <!-- Social post 4 (placeholder): replace the image "src" (1350 x 1080 px). Optional: add data-full="path/to/larger-image.jpg" for a bigger lightbox version -->
+                    <div class="work-card social-card" role="button" tabindex="0" data-lb-group="social" data-lb-type="image" data-title="Campaign Creative 04">
+                        <div class="thumb thumb--social">
+                            <img src="images/social-04.svg" alt="Campaign Creative 04" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--expand"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="ex ex-tl" d="M9 4H4v5M4 4l6 6"/><path class="ex ex-tr" d="M15 4h5v5M20 4l-6 6"/><path class="ex ex-bl" d="M9 20H4v-5M4 20l6-6"/><path class="ex ex-br" d="M15 20h5v-5M20 20l-6-6"/></svg></span></div>
+                        </div>
+                        <h3>Campaign Creative 04</h3>
+                    </div>
+                    <!-- Social post 5 (placeholder): replace the image "src" (1350 x 1080 px). Optional: add data-full="path/to/larger-image.jpg" for a bigger lightbox version -->
+                    <div class="work-card social-card" role="button" tabindex="0" data-lb-group="social" data-lb-type="image" data-title="Campaign Creative 05">
+                        <div class="thumb thumb--social">
+                            <img src="images/social-05.svg" alt="Campaign Creative 05" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--expand"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="ex ex-tl" d="M9 4H4v5M4 4l6 6"/><path class="ex ex-tr" d="M15 4h5v5M20 4l-6 6"/><path class="ex ex-bl" d="M9 20H4v-5M4 20l6-6"/><path class="ex ex-br" d="M15 20h5v-5M20 20l-6-6"/></svg></span></div>
+                        </div>
+                        <h3>Campaign Creative 05</h3>
+                    </div>
+                    <!-- Social post 6 (placeholder): replace the image "src" (1350 x 1080 px). Optional: add data-full="path/to/larger-image.jpg" for a bigger lightbox version -->
+                    <div class="work-card social-card" role="button" tabindex="0" data-lb-group="social" data-lb-type="image" data-title="Campaign Creative 06">
+                        <div class="thumb thumb--social">
+                            <img src="images/social-06.svg" alt="Campaign Creative 06" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--expand"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="ex ex-tl" d="M9 4H4v5M4 4l6 6"/><path class="ex ex-tr" d="M15 4h5v5M20 4l-6 6"/><path class="ex ex-bl" d="M9 20H4v-5M4 20l6-6"/><path class="ex ex-br" d="M15 20h5v-5M20 20l-6-6"/></svg></span></div>
+                        </div>
+                        <h3>Campaign Creative 06</h3>
+                    </div>
+                    <!-- Social post 7 (placeholder): replace the image "src" (1350 x 1080 px). Optional: add data-full="path/to/larger-image.jpg" for a bigger lightbox version -->
+                    <div class="work-card social-card" role="button" tabindex="0" data-lb-group="social" data-lb-type="image" data-title="Campaign Creative 07">
+                        <div class="thumb thumb--social">
+                            <img src="images/social-07.svg" alt="Campaign Creative 07" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--expand"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="ex ex-tl" d="M9 4H4v5M4 4l6 6"/><path class="ex ex-tr" d="M15 4h5v5M20 4l-6 6"/><path class="ex ex-bl" d="M9 20H4v-5M4 20l6-6"/><path class="ex ex-br" d="M15 20h5v-5M20 20l-6-6"/></svg></span></div>
+                        </div>
+                        <h3>Campaign Creative 07</h3>
+                    </div>
+                    <!-- Social post 8 (placeholder): replace the image "src" (1350 x 1080 px). Optional: add data-full="path/to/larger-image.jpg" for a bigger lightbox version -->
+                    <div class="work-card social-card" role="button" tabindex="0" data-lb-group="social" data-lb-type="image" data-title="Campaign Creative 08">
+                        <div class="thumb thumb--social">
+                            <img src="images/social-08.svg" alt="Campaign Creative 08" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--expand"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="ex ex-tl" d="M9 4H4v5M4 4l6 6"/><path class="ex ex-tr" d="M15 4h5v5M20 4l-6 6"/><path class="ex ex-bl" d="M9 20H4v-5M4 20l6-6"/><path class="ex ex-br" d="M15 20h5v-5M20 20l-6-6"/></svg></span></div>
+                        </div>
+                        <h3>Campaign Creative 08</h3>
+                    </div>
+                    <!-- Social post 9 (placeholder): replace the image "src" (1350 x 1080 px). Optional: add data-full="path/to/larger-image.jpg" for a bigger lightbox version -->
+                    <div class="work-card social-card" role="button" tabindex="0" data-lb-group="social" data-lb-type="image" data-title="Campaign Creative 09">
+                        <div class="thumb thumb--social">
+                            <img src="images/social-09.svg" alt="Campaign Creative 09" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--expand"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="ex ex-tl" d="M9 4H4v5M4 4l6 6"/><path class="ex ex-tr" d="M15 4h5v5M20 4l-6 6"/><path class="ex ex-bl" d="M9 20H4v-5M4 20l6-6"/><path class="ex ex-br" d="M15 20h5v-5M20 20l-6-6"/></svg></span></div>
+                        </div>
+                        <h3>Campaign Creative 09</h3>
                     </div>
                 </div>
             </div>
 
-            <!-- Tab 3: Lottie Animations -->
-            <div id="lottie-tab" class="tab-content">
-                <div class="lottie-notice-box">
-                    <h3>Lottie Animation Spaces</h3>
-                    <p>Ready for your Lottie animation JSON files or embed links. Paste or configure your animation links below:</p>
-                    <ul class="lottie-links-list">
-                        <li>Animation Slot 1: <a href="#" target="_blank">[Add link here]</a></li>
-                        <li>Animation Slot 2: <a href="#" target="_blank">[Add link here]</a></li>
-                        <li>Animation Slot 3: <a href="#" target="_blank">[Add link here]</a></li>
-                    </ul>
+            <!-- Tab 3: Website Portfolio (opens the site in a new tab). Thumbnails: 1600 x 1000 px -->
+            <div id="website-tab" class="tab-content">
+                <div class="work-grid">
+                    <!-- Website 1 (placeholder): replace the image "src" (1600 x 1000 px) and the "href" with the live site link -->
+                    <a class="work-card website-card" href="https://example.com/website-01" target="_blank" rel="noopener noreferrer">
+                        <div class="thumb thumb--web">
+                            <img src="images/website-01.svg" alt="Website Project 01" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--link"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg></span></div>
+                        </div>
+                        <h3>Website Project 01</h3>
+                        <p>Client name / industry &middot; Platform</p>
+                    </a>
+                    <!-- Website 2 (placeholder): replace the image "src" (1600 x 1000 px) and the "href" with the live site link -->
+                    <a class="work-card website-card" href="https://example.com/website-02" target="_blank" rel="noopener noreferrer">
+                        <div class="thumb thumb--web">
+                            <img src="images/website-02.svg" alt="Website Project 02" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--link"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg></span></div>
+                        </div>
+                        <h3>Website Project 02</h3>
+                        <p>Client name / industry &middot; Platform</p>
+                    </a>
+                    <!-- Website 3 (placeholder): replace the image "src" (1600 x 1000 px) and the "href" with the live site link -->
+                    <a class="work-card website-card" href="https://example.com/website-03" target="_blank" rel="noopener noreferrer">
+                        <div class="thumb thumb--web">
+                            <img src="images/website-03.svg" alt="Website Project 03" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--link"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg></span></div>
+                        </div>
+                        <h3>Website Project 03</h3>
+                        <p>Client name / industry &middot; Platform</p>
+                    </a>
+                    <!-- Website 4 (placeholder): replace the image "src" (1600 x 1000 px) and the "href" with the live site link -->
+                    <a class="work-card website-card" href="https://example.com/website-04" target="_blank" rel="noopener noreferrer">
+                        <div class="thumb thumb--web">
+                            <img src="images/website-04.svg" alt="Website Project 04" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--link"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg></span></div>
+                        </div>
+                        <h3>Website Project 04</h3>
+                        <p>Client name / industry &middot; Platform</p>
+                    </a>
+                    <!-- Website 5 (placeholder): replace the image "src" (1600 x 1000 px) and the "href" with the live site link -->
+                    <a class="work-card website-card" href="https://example.com/website-05" target="_blank" rel="noopener noreferrer">
+                        <div class="thumb thumb--web">
+                            <img src="images/website-05.svg" alt="Website Project 05" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--link"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg></span></div>
+                        </div>
+                        <h3>Website Project 05</h3>
+                        <p>Client name / industry &middot; Platform</p>
+                    </a>
+                    <!-- Website 6 (placeholder): replace the image "src" (1600 x 1000 px) and the "href" with the live site link -->
+                    <a class="work-card website-card" href="https://example.com/website-06" target="_blank" rel="noopener noreferrer">
+                        <div class="thumb thumb--web">
+                            <img src="images/website-06.svg" alt="Website Project 06" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--link"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg></span></div>
+                        </div>
+                        <h3>Website Project 06</h3>
+                        <p>Client name / industry &middot; Platform</p>
+                    </a>
+                    <!-- Website 7 (placeholder): replace the image "src" (1600 x 1000 px) and the "href" with the live site link -->
+                    <a class="work-card website-card" href="https://example.com/website-07" target="_blank" rel="noopener noreferrer">
+                        <div class="thumb thumb--web">
+                            <img src="images/website-07.svg" alt="Website Project 07" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--link"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg></span></div>
+                        </div>
+                        <h3>Website Project 07</h3>
+                        <p>Client name / industry &middot; Platform</p>
+                    </a>
+                    <!-- Website 8 (placeholder): replace the image "src" (1600 x 1000 px) and the "href" with the live site link -->
+                    <a class="work-card website-card" href="https://example.com/website-08" target="_blank" rel="noopener noreferrer">
+                        <div class="thumb thumb--web">
+                            <img src="images/website-08.svg" alt="Website Project 08" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--link"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg></span></div>
+                        </div>
+                        <h3>Website Project 08</h3>
+                        <p>Client name / industry &middot; Platform</p>
+                    </a>
+                    <!-- Website 9 (placeholder): replace the image "src" (1600 x 1000 px) and the "href" with the live site link -->
+                    <a class="work-card website-card" href="https://example.com/website-09" target="_blank" rel="noopener noreferrer">
+                        <div class="thumb thumb--web">
+                            <img src="images/website-09.svg" alt="Website Project 09" loading="lazy">
+                            <div class="thumb-overlay"><span class="hover-icon hover-icon--link"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg></span></div>
+                        </div>
+                        <h3>Website Project 09</h3>
+                        <p>Client name / industry &middot; Platform</p>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Video Lightbox Modal -->
-    <div id="videoLightbox" class="lightbox-modal" onclick="closeLightbox(event)">
-        <div class="lightbox-content" onclick="event.stopPropagation()">
-            <button class="lightbox-close" onclick="closeLightboxDirect()">&times;</button>
-            <div class="lightbox-video-container">
-                <iframe id="lightboxIframe" src="" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- Lightbox (videos + social posts) -->
+    <div id="lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Content viewer">
+        <button class="lightbox-close" id="lbClose" aria-label="Close">&times;</button>
+        <button class="lightbox-nav lightbox-nav--prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+        <button class="lightbox-nav lightbox-nav--next" id="lbNext" aria-label="Next">&#8250;</button>
+        <div class="lightbox-stage">
+            <div class="lightbox-video-container" id="lbVideo">
+                <iframe id="lightboxIframe" src="about:blank" title="Video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="lightbox-notice" id="lbNotice">
+                    <strong>Video placeholder</strong>
+                    <span>Add your YouTube or Vimeo link in this item's <code>data-video</code> attribute.</span>
+                </div>
             </div>
+            <img class="lightbox-image" id="lbImage" alt="">
+            <p class="lightbox-caption" id="lbCaption"></p>
         </div>
     </div>
 
@@ -294,7 +501,7 @@
                     “In today’s fast-paced digital world, attention is everything. A great visual doesn’t just make people stop scrolling; it makes them understand, connect, and take action.”
                 </blockquote>
                 <p>
-                    <strong>Muhammad Hakeem</strong> is the founder of Cre8tive Motion, a video editor and motion designer with experience dating back to 2016. Over the years he has worked across video production, motion graphics, animation, and digital content creation, expanding into AI-powered production and creative marketing.
+                    <strong>Muhammad Hakeem</strong> is the founder of Videos2Grow, a video editor and motion designer with experience dating back to 2016. Over the years he has worked across video production, motion graphics, animation, and digital content creation, expanding into AI-powered production and creative marketing.
                 </p>
                 <p>
                     Years of creating animations taught him that effective marketing goes beyond highlighting product benefits. It starts with understanding the audience's challenges and positioning your business as the solution.
@@ -332,33 +539,29 @@
             </div>
             <div class="team-grid">
                 <div class="team-card">
-                    <div class="team-photo-placeholder">
-                        <span>Photo Placeholder</span>
-                    </div>
+                    <!-- Team photo: replace images/team-01.svg with your photo. Recommended 800 x 1000 px (4:5 portrait), JPG/PNG/WebP -->
+                    <div class="team-photo"><img src="images/team-01.svg" alt="Muhammad Hakeem" loading="lazy"></div>
                     <h3>Muhammad Hakeem</h3>
                     <p class="role">Founder | Video Editor & Motion Designer</p>
                     <p>Leads creative direction, motion design, video production, and marketing strategy since 2016.</p>
                 </div>
                 <div class="team-card">
-                    <div class="team-photo-placeholder">
-                        <span>Photo Placeholder</span>
-                    </div>
+                    <!-- Team photo: replace images/team-02.svg with your photo. Recommended 800 x 1000 px (4:5 portrait), JPG/PNG/WebP -->
+                    <div class="team-photo"><img src="images/team-02.svg" alt="Ghulam Rasool" loading="lazy"></div>
                     <h3>Ghulam Rasool</h3>
                     <p class="role">Graphic Designer & Video Editor</p>
                     <p>Creates eye-catching custom designs combining traditional skills with AI-powered creativity.</p>
                 </div>
                 <div class="team-card">
-                    <div class="team-photo-placeholder">
-                        <span>Photo Placeholder</span>
-                    </div>
+                    <!-- Team photo: replace images/team-03.svg with your photo. Recommended 800 x 1000 px (4:5 portrait), JPG/PNG/WebP -->
+                    <div class="team-photo"><img src="images/team-03.svg" alt="Tahir Hussain" loading="lazy"></div>
                     <h3>Tahir Hussain</h3>
                     <p class="role">Designer & AI Creative Specialist</p>
                     <p>Combines AI technology with human imagination to turn simple ideas into compelling visual stories.</p>
                 </div>
                 <div class="team-card">
-                    <div class="team-photo-placeholder">
-                        <span>Photo Placeholder</span>
-                    </div>
+                    <!-- Team photo: replace images/team-04.svg with your photo. Recommended 800 x 1000 px (4:5 portrait), JPG/PNG/WebP -->
+                    <div class="team-photo"><img src="images/team-04.svg" alt="Muhammad Mutahir" loading="lazy"></div>
                     <h3>Muhammad Mutahir</h3>
                     <p class="role">Lottie & Web/App Animation Specialist</p>
                     <p>Specializes in Lottie animations and interactive web/app experiences that improve engagement.</p>
@@ -398,8 +601,8 @@
     <!-- Footer -->
     <footer>
         <div class="container footer__inner">
-            <div class="logo">Cre8tive <span>Motion</span></div>
-            <p>&copy; 2026 Cre8tive Motion. All rights reserved. Creative Ideas. Powerful Visuals. Meaningful Growth.</p>
+            <a href="#home" class="logo" aria-label="Videos2Grow - home"><img src="images/logo.svg" alt="Videos2Grow" width="480" height="120"></a>
+            <p>&copy; 2026 Videos2Grow. All rights reserved. Creative Ideas. Powerful Visuals. Meaningful Growth.</p>
         </div>
     </footer>
 
@@ -419,28 +622,134 @@
             evt.currentTarget.classList.add("active");
         }
 
-        // Lightbox Functions
-        function openLightbox(videoUrl) {
-            const modal = document.getElementById('videoLightbox');
+        // ---------- Lightbox (videos + social posts) ----------
+        (function () {
+            const modal = document.getElementById('lightbox');
             const iframe = document.getElementById('lightboxIframe');
-            iframe.src = videoUrl + "?autoplay=1";
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+            const videoBox = document.getElementById('lbVideo');
+            const notice = document.getElementById('lbNotice');
+            const img = document.getElementById('lbImage');
+            const caption = document.getElementById('lbCaption');
+            const prevBtn = document.getElementById('lbPrev');
+            const nextBtn = document.getElementById('lbNext');
+            let group = [], index = 0, lastFocus = null;
 
-        function closeLightbox(event) {
-            const modal = document.getElementById('videoLightbox');
-            modal.classList.remove('active');
-            document.getElementById('lightboxIframe').src = '';
-            document.body.style.overflow = '';
-        }
+            // Turns a YouTube / Vimeo / direct link into something embeddable. Returns null for placeholders.
+            function toEmbed(url) {
+                if (!url || url.includes('YOUR_VIDEO_ID')) return null;
+                try {
+                    const u = new URL(url);
+                    const host = u.hostname.replace('www.', '');
+                    let id = null;
+                    if (host === 'youtu.be') id = u.pathname.slice(1);
+                    else if (host.endsWith('youtube.com')) {
+                        if (u.pathname === '/watch') id = u.searchParams.get('v');
+                        else id = u.pathname.split('/').filter(Boolean)[1];
+                    }
+                    if (id) return 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+                    if (host === 'vimeo.com') return 'https://player.vimeo.com/video/' + u.pathname.split('/').filter(Boolean)[0] + '?autoplay=1';
+                    return url;
+                } catch (e) { return null; }
+            }
 
-        function closeLightboxDirect() {
-            const modal = document.getElementById('videoLightbox');
-            modal.classList.remove('active');
-            document.getElementById('lightboxIframe').src = '';
-            document.body.style.overflow = '';
-        }
+            function render() {
+                const card = group[index];
+                const isVideo = card.dataset.lbType === 'video';
+                videoBox.style.display = isVideo ? 'block' : 'none';
+                img.style.display = isVideo ? 'none' : 'block';
+                if (isVideo) {
+                    const src = toEmbed(card.dataset.video);
+                    iframe.src = src || 'about:blank';
+                    iframe.style.display = src ? 'block' : 'none';
+                    notice.style.display = src ? 'none' : 'flex';
+                    img.removeAttribute('src');
+                } else {
+                    iframe.src = 'about:blank';
+                    const thumb = card.querySelector('img');
+                    img.src = card.dataset.full || thumb.src;
+                    img.alt = card.dataset.title || '';
+                }
+                caption.textContent = (card.dataset.title || '') + '  (' + (index + 1) + ' / ' + group.length + ')';
+                const multi = group.length > 1;
+                prevBtn.style.display = nextBtn.style.display = multi ? 'flex' : 'none';
+            }
+
+            function open(card) {
+                group = Array.from(document.querySelectorAll('[data-lb-group="' + card.dataset.lbGroup + '"]'));
+                index = group.indexOf(card);
+                lastFocus = document.activeElement;
+                render();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                document.getElementById('lbClose').focus();
+            }
+
+            function close() {
+                modal.classList.remove('active');
+                iframe.src = 'about:blank';   // stops playback
+                document.body.style.overflow = '';
+                if (lastFocus) lastFocus.focus();
+            }
+
+            function step(dir) {
+                index = (index + dir + group.length) % group.length;
+                render();
+            }
+
+            document.addEventListener('click', function (e) {
+                const card = e.target.closest('[data-lb-group]');
+                if (card) { open(card); return; }
+                if (!modal.classList.contains('active')) return;
+                if (e.target.closest('#lbClose') || e.target === modal || e.target.classList.contains('lightbox-stage')) close();
+                else if (e.target.closest('#lbPrev')) step(-1);
+                else if (e.target.closest('#lbNext')) step(1);
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (modal.classList.contains('active')) {
+                    if (e.key === 'Escape') close();
+                    else if (e.key === 'ArrowLeft') step(-1);
+                    else if (e.key === 'ArrowRight') step(1);
+                    return;
+                }
+                const card = e.target.closest && e.target.closest('[data-lb-group]');
+                if (card && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); open(card); }
+            });
+        })();
+
+        // ---------- Hero background: cursor + scroll parallax ----------
+        (function () {
+            const hero = document.querySelector('.hero');
+            const layers = Array.from(hero.querySelectorAll('.hero__bg [data-depth]'));
+            if (!layers.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            let tx = 0, ty = 0, cx = 0, cy = 0, scrollY = 0, visible = true, running = false;
+
+            hero.addEventListener('mousemove', function (e) {
+                const r = hero.getBoundingClientRect();
+                tx = (e.clientX - r.left) / r.width - 0.5;    // -0.5 .. 0.5
+                ty = (e.clientY - r.top) / r.height - 0.5;
+                start();
+            });
+            hero.addEventListener('mouseleave', function () { tx = 0; ty = 0; start(); });
+            window.addEventListener('scroll', function () { scrollY = window.scrollY; start(); }, { passive: true });
+            new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible) start(); }).observe(hero);
+
+            function frame() {
+                cx += (tx - cx) * 0.06;     // smooth easing
+                cy += (ty - cy) * 0.06;
+                const y = Math.min(scrollY, 1200);
+                layers.forEach(function (el) {
+                    const d = parseFloat(el.dataset.depth), s = parseFloat(el.dataset.speed);
+                    el.style.transform = 'translate3d(' + (cx * d).toFixed(2) + 'px,' + (cy * d + y * s).toFixed(2) + 'px,0)';
+                });
+                // keep animating only while the layers are still easing toward the cursor
+                if (visible && (Math.abs(tx - cx) > 0.0005 || Math.abs(ty - cy) > 0.0005)) requestAnimationFrame(frame);
+                else running = false;
+            }
+            function start() { if (!running && visible) { running = true; requestAnimationFrame(frame); } }
+            start();
+        })();
 
         // Contact Form Function
         async function handleContactSubmit(event) {
