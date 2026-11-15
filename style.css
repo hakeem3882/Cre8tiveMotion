@@ -917,3 +917,145 @@ footer p {
     color: #64748b;
     margin-top: 1rem;
 }
+
+/* =========================================================
+   RESPONSIVE: tablet (<= 900px) and mobile (<= 600px)
+   ========================================================= */
+.nav-toggle { display: none; }
+
+@media (max-width: 900px) {
+    .navbar { padding: 0.7rem 0; }
+    .navbar__inner { gap: 0.8rem; }
+    .logo img, footer .logo img { height: 38px; }
+
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
+        padding: 0 10px;
+        margin-left: 0.2rem;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .nav-toggle span {
+        display: block;
+        height: 2px;
+        background: #0d0d0d;
+        border-radius: 2px;
+        transition: transform 0.3s ease, opacity 0.2s ease;
+    }
+    .menu-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+    .menu-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .navbar__inner { flex-wrap: nowrap; }
+    .navbar__action { margin-left: auto; }
+
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 16px 30px -18px rgba(0, 0, 0, 0.25);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+    }
+    .menu-open .main-nav { max-height: 420px; }
+    .nav-list {
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 5% 1rem;
+    }
+    .nav-list a {
+        display: block;
+        padding: 0.85rem 0;
+        font-size: 1.05rem;
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    .section { padding: 4.5rem 0; }
+    .section-header h2, .about__content h2 { font-size: 2.1rem; }
+
+    .hero { padding: 8rem 0 3.5rem; }
+    .hero__title { font-size: 2.8rem; }
+    .marquee { margin-top: 3.5rem; }
+
+    .about__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .work-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .services-grid { gap: 1.5rem; }
+    .service-card { padding: 2rem; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .container { width: 92%; }
+    .section { padding: 3.5rem 0; }
+    .section-header { margin-bottom: 2rem; }
+    .section-header h2, .about__content h2 { font-size: 1.7rem; line-height: 1.25; }
+    .section-desc { font-size: 0.98rem; }
+
+    /* Navbar: smaller button text, keep it on one row */
+    .logo img, footer .logo img { height: 34px; }
+    .navbar__action .btn-sm { padding: 0.45rem 0.9rem; font-size: 0.82rem; }
+
+    /* Hero */
+    .hero { padding: 6.5rem 0 2.5rem; }
+    .hero__title { font-size: 2.05rem; line-height: 1.22; }
+    .hero__title br { display: none; }
+    .hero__title span { display: block; }
+    .hero__eyebrow { font-size: 0.75rem; text-align: left; line-height: 1.4; }
+    .hero__text { font-size: 1rem; margin-bottom: 2rem; }
+    .hero__actions { flex-direction: column; align-items: stretch; margin-bottom: 2.5rem; }
+    .hero__actions .btn { text-align: center; }
+    .hero__stats { gap: 1.5rem; padding-top: 1.8rem; }
+    .hero__stats h3 { font-size: 1.5rem; }
+    .hero__stats p { font-size: 0.78rem; }
+    .marquee { margin-top: 2.5rem; }
+
+    /* Services */
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { padding: 1.6rem; }
+    .service-card h3 { font-size: 1.2rem; }
+
+    /* Work */
+    .work-tabs { gap: 0.5rem; margin-bottom: 2rem; }
+    .tab-btn { padding: 0.6rem 0.9rem; font-size: 0.85rem; flex: 1 1 auto; text-align: center; }
+    .work-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+
+    /* About */
+    .about__timeline { padding: 1.6rem; }
+    .founder-quote { font-size: 1rem; }
+
+    /* Team */
+    .team-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+    .team-card { padding: 1.5rem; }
+
+    /* Contact */
+    .contact-form { padding: 1.5rem; }
+
+    /* Footer */
+    footer { padding: 2.2rem 0; }
+    footer p { font-size: 0.78rem; line-height: 1.6; }
+
+    /* Lightbox */
+    .lightbox-modal { padding: 4rem 0.75rem 5rem; }
+    .lightbox-close { top: 0.6rem; right: 0.75rem; }
+}
+
+@media (max-width: 360px) {
+    .hero__title { font-size: 1.8rem; }
+    .navbar__action { display: none; }   /* Let's Talk stays reachable inside the menu/contact link */
+    .navbar__inner { justify-content: space-between; }
+    .nav-toggle { margin-left: auto; }
+}
+
+/* Keep section headings clear of the fixed header when jumping via menu links */
+section[id] { scroll-margin-top: 70px; }
